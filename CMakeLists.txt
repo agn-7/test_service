@@ -7,7 +7,6 @@ find_package(catkin REQUIRED COMPONENTS
   message_generation
 )
 
-
 add_service_files(
   FILES
   MySrvFile.srv
@@ -23,4 +22,13 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
+catkin_install_python(PROGRAMS
+  scripts/client.py
+  scripts/server.py
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/scripts
+)
 
+install(FILES
+  ./README.md
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+)
